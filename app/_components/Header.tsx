@@ -21,7 +21,7 @@ export default function Header() {
                             href="/week"
                             className="font-light text-sky-200"
                         >
-                            This week
+                            {t("navLinks.week")}
                         </Link>
                     </li>
                     <li>
@@ -29,7 +29,7 @@ export default function Header() {
                             href="/about"
                             className="font-light text-sky-200"
                         >
-                            About
+                            {t("navLinks.about")}
                         </Link>
                     </li>
                 </ul>
