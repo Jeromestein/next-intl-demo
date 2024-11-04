@@ -16,6 +16,13 @@ export default createMiddleware({
     // simple for now. We'll enable it later when
     // we cover locale detection.
     localeDetection: false,
+    /**
+     * For SEO or usability, some consider localizing their pathnames, 
+     * such as translating /ar-eg/about to /ar-eg/نبذة-عنا.
+     * For details on how to set this up and ensure proper navigation, 
+     * check out the Localizing pathnames section in the next-intl documentation.
+     */
+    localePrefix: "always",
 });
 
 // Our middleware only applies to routes that
