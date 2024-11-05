@@ -5,6 +5,7 @@ import type { Metadata } from "next";
 import "@/app/globals.css";
 import { locales } from "@/i18n.config";
 import { unstable_setRequestLocale } from "next-intl/server";
+import useTextDirection from "@/app/_hooks/useTextDirection";
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -28,8 +29,14 @@ export default function LocaleLayout({
   };
 }>) {
   unstable_setRequestLocale(locale);
+  /* Make sure this comes after the
+   * unstable_setRequestLocale call
+   * to avoid build errors.
+   */
+  const dir = useTextDirection();
+
   return (
-    <html lang={locale}>
+    <html lang={locale} dir={dir}>
       <body className="mx-auto w-[500px] bg-slate-950 px-6 pt-3 text-sky-100">
         <Header />
         {children}
