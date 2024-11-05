@@ -23,7 +23,7 @@ export default function LocaleLayout({
 }>) {
   return (
     <html lang={locale}>
-      <body className="...">
+      <body className="mx-auto w-[500px] bg-slate-950 px-6 pt-3 text-sky-100">
         <Header />
         {children}
       </body>

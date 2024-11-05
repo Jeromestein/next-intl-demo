@@ -31,7 +31,7 @@ export default function ServerWeatherAlerts() {
         <ClientWeatherAlerts title={t("title")}>
             {/* Inject alerts as children. */}
             {alerts.map((alert) => (
-                <p className="..." key={alert}>
+                <p className="py-2" key={alert}>
                     {alert}
                 </p>
             ))}
