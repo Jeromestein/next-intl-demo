@@ -1,3 +1,5 @@
+import WeatherAlerts from "@/app/_components/WeatherAlerts";
+
 export default function Home() {
   return (
     <main>
@@ -13,6 +15,8 @@ export default function Home() {
           <p className="text-6xl font-thin">22°C</p>
         </div>
       </section>
+
+      <WeatherAlerts />
     </main>
   );
 }

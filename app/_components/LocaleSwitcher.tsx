@@ -14,8 +14,8 @@ export default function LocaleSwitcher({
     locale: Locale;
 }) {
     /* `pathname` will contain the current
-     route without the locale e.g. `/about`...
-    */
+     * route without the locale e.g. `/about`...
+     */
     const pathname = usePathname();
     const router = useRouter();
 
@@ -24,10 +24,10 @@ export default function LocaleSwitcher({
     ) => {
         const newLocale = event.target.value as Locale;
         /* ...if the user chose Arabic ("ar-eg"),
-         router.replace() will prefix the pathname
-         with this `newLocale`, effectively changing
-         languages by navigating to `/ar-eg/about`.   
-        */
+         * router.replace() will prefix the pathname
+         * with this `newLocale`, effectively changing
+         * languages by navigating to `/ar-eg/about`.   
+         */
         router.replace(pathname, { locale: newLocale });
     };
 
