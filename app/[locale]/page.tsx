@@ -1,5 +1,5 @@
 // app/[locale]/page.tsx
-import { useTranslations } from "next-intl";
+import { useTranslations, useFormatter } from "next-intl";
 import ServerWeatherAlerts from "@/app/_components/WeatherAlerts/ServerWeatherAlerts";
 import { unstable_setRequestLocale } from "next-intl/server";
 
@@ -24,7 +24,7 @@ export default function Home({
    */
   unstable_setRequestLocale(locale);
   const t = useTranslations("Home");
-
+  const format = useFormatter();
   return (
     <main>
       <p className="mx-auto mb-2 w-max rounded-sm bg-slate-800 px-2 py-1 text-xs text-sky-200">
@@ -40,7 +40,9 @@ export default function Home({
         <div className="flex items-baseline gap-3">
           <p className="relative top-4 text-8xl">☀️</p>
           <p className="text-6xl font-light">Sunny</p>
-          <p className="text-6xl font-thin">22°C</p>
+          <p className="text-6xl font-thin">
+            {format.number(22, { style: "unit", unit: "celsius", })}
+          </p>
         </div>
       </section>
 

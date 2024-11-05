@@ -40,6 +40,7 @@
     },
     "About": {
         "title": "About",
-        "description": "This is a minimalistic mock weather app built with."
+        "description": "This is a minimalistic mock weather app built with.",
+        "liveDuration": "We've been live for {duration, number, ::precision-integer} seconds."
     }
 }

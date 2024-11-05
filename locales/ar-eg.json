@@ -40,6 +40,7 @@
     },
     "About": {
         "title": "نبذة عنا",
-        "description": "هذا تطبيق طقس وهمي بسيط تم إنشاؤه باستخدام ."
+        "description": "هذا تطبيق طقس وهمي بسيط تم إنشاؤه باستخدام .",
+        "liveDuration": "لقد كنا على الهواء مباشرة لمدة {duration, number, ::precision-integer} ثانية."
     }
 }
