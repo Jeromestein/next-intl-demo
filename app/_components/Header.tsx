@@ -1,10 +1,14 @@
-import { useTranslations } from "next-intl";
-import { Link } from "@/i18n.config";
+import { Link, Locale } from "@/i18n.config";
+import { useLocale, useTranslations } from "next-intl";
+import LocaleSwitcher from "./LocaleSwitcher";
+
 export default function Header() {
     const t = useTranslations("Header");
+    // Retrieves the active locale
+    const locale = useLocale() as Locale;
 
     return (
-        <header className="mb-3 border-b border-sky-900/75 pb-2 text-sm">
+        <header className="mb-3 flex justify-between border-b border-sky-900/75 pb-2 text-sm">
             <nav>
                 <ul className="flex gap-4">
                     <li>
@@ -33,6 +37,8 @@ export default function Header() {
                     </li>
                 </ul>
             </nav>
+
+            <LocaleSwitcher locale={locale} />
         </header>
     );
 }

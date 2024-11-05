@@ -1,10 +1,14 @@
+import { useTranslations } from "next-intl";
+
+
 export default function About() {
+    const t = useTranslations("About");
+
     return (
         <main>
-            <h1 className="text-xs font-thin">About</h1>
+            <h1 className="text-xs font-thin">{t("title")}</h1>
             <p className="text-lg">
-                This is a minimalistic mock weather app built with
-                Next.js.
+                {t("description")}
             </p>
         </main>
     );
