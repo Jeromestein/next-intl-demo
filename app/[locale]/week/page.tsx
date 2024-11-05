@@ -21,6 +21,9 @@ export default async function Week() {
             <h1 className="text-xs font-thin">
                 {t("title")}
             </h1>
+            <p className="w-max rounded-md bg-red-900 px-2 py-1 text-xs text-red-100">
+                {t("alertCount", { count: 3 })}
+            </p>
             <div className="divide-y divide-dashed divide-sky-900">
                 {weeklyWeather.map((day) => (
                     <section key={day.dateTime} className="py-5">
