@@ -1,5 +1,6 @@
 import type { WeeklyWeatherRoot } from "@/types";
 import { promises as fs } from "fs";
+import { getTranslations } from "next-intl/server";
 
 export default async function Week() {
     const fileContents = await fs.readFile(
@@ -9,11 +10,16 @@ export default async function Week() {
     const { weeklyWeather } = JSON.parse(
         fileContents,
     ) as WeeklyWeatherRoot;
+    /*
+     * next-intl provides an async drop-in replacement for useTranslations 
+     * called getTranslations.
+     */
+    const t = await getTranslations("Week");
 
     return (
         <main>
             <h1 className="text-xs font-thin">
-                This week&apos;s weather
+                {t("title")}
             </h1>
             <div className="divide-y divide-dashed divide-sky-900">
                 {weeklyWeather.map((day) => (
@@ -27,7 +33,8 @@ export default async function Week() {
                                     {day.conditionIcon}
                                 </p>
                                 <p className="text-3xl font-light">
-                                    {day.condition}
+                                    {/* "sunny" | "partlyCloudy" | ... */}
+                                    {t(day.condition)}
                                 </p>
                                 <p className="text-3xl font-thin">
                                     {day.temperature.celsius}°C
