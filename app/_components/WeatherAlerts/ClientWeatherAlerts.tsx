@@ -4,13 +4,14 @@
 // Component.
 "use client";
 
-// ...
 import clsx from "clsx/lite";
 import { useState } from "react";
 
-export default function WeatherAlerts() {
-    // We can only use React state in Client
-    // Components.
+export default function ClientWeatherAlerts({
+    title,
+    children,
+}: Readonly<{ title: string; children: React.ReactNode }>) {
+    // We can only use React state in Client Components.
     const [isOpen, setIsOpen] = useState(false);
     const toggleIsOpen = () => setIsOpen(!isOpen);
 
@@ -23,7 +24,7 @@ export default function WeatherAlerts() {
                 )}
                 onClick={toggleIsOpen}
             >
-                Weather Alerts
+                {title}
                 <span
                     className={clsx(
                         "transform transition-transform",
@@ -35,16 +36,7 @@ export default function WeatherAlerts() {
             </div>
             {isOpen && (
                 <div className="divide-y divide-dashed divide-white/20 rounded-b-md bg-red-900 p-4 text-red-100">
-                    <p className="text-sm">
-                        🌩️ Severe Thunderstorm Warning until 09:00 PM
-                    </p>
-                    <p className="text-sm">
-                        🌨️ Blizzard Warning in effect from 01:00 AM
-                    </p>
-                    <p className="text-sm">
-                        🌊 Coastal Flood Advisory from noon today to
-                        10:00 PM
-                    </p>
+                    {children}
                 </div>
             )}
         </div>

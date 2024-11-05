@@ -1,5 +1,4 @@
-import WeatherAlerts from "@/app/_components/WeatherAlerts";
-
+import ServerWeatherAlerts from "@/app/_components/WeatherAlerts/ServerWeatherAlerts";
 export default function Home() {
   return (
     <main>
@@ -16,7 +15,7 @@ export default function Home() {
         </div>
       </section>
 
-      <WeatherAlerts />
+      <ServerWeatherAlerts />
     </main>
   );
 }
