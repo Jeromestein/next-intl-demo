@@ -1,3 +1,15 @@
+import enUsMessages from "./locales/en-us.json";
+
+type Messages = typeof enUsMessages;
+
+declare global {
+    interface IntlMessages extends Messages { }
+}
+
+export interface WeeklyWeatherRoot {
+    weeklyWeather: WeeklyWeather[];
+}
+
 export interface WeeklyWeatherRoot {
     weeklyWeather: WeeklyWeather[];
 }
@@ -5,7 +17,7 @@ export interface WeeklyWeatherRoot {
 export interface WeeklyWeather {
     dateTime: string;
     condition: Condition;
-    conditionIcon: string;
+    conditionIcon: Condition;
     temperature: Temperature;
 }
 
