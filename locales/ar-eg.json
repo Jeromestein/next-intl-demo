@@ -2,17 +2,17 @@
     "units": {
         "temperature": "celsius"
     },
-    "Layout": {
-        "metaData": {
-            "title": "تقص نكست چى إس",
-            "description": "تطبيق طقس وهمي بسيط تم إنشاؤه باستخدام Next.js و next-intl."
-        }
-    },
     "Header": {
         "appTitle": "تقص نكست چى إس",
         "navLinks": {
             "week": "هذا الأسبوع",
             "about": "نبذة عنا"
+        }
+    },
+    "Layout": {
+        "metaData": {
+            "title": "تقص نكست چى إس",
+            "description": "تطبيق طقس وهمي بسيط تم إنشاؤه باستخدام Next.js و next-intl."
         }
     },
     "WeatherAlerts": {

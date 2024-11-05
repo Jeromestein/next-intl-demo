@@ -2,17 +2,17 @@
     "units": {
         "temperature": "fahrenheit"
     },
-    "Layout": {
-        "metaData": {
-            "title": "Next.js Weather",
-            "description": "A weather app built with Next.js and next-intl"
-        }
-    },
     "Header": {
         "appTitle": "Next.js Weather",
         "navLinks": {
             "week": "This week",
             "about": "About"
+        }
+    },
+    "Layout": {
+        "metaData": {
+            "title": "Next.js Weather",
+            "description": "A weather app built with Next.js and next-intl"
         }
     },
     "WeatherAlerts": {
