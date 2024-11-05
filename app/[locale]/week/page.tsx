@@ -1,8 +1,12 @@
 import type { WeeklyWeatherRoot } from "@/types";
 import { promises as fs } from "fs";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, getFormatter, unstable_setRequestLocale } from "next-intl/server";
 
-export default async function Week() {
+export default async function Week({
+    params: { locale },
+}: Readonly<{ params: { locale: string } }>) {
+    unstable_setRequestLocale(locale);
+
     const fileContents = await fs.readFile(
         `${process.cwd()}/app/_data/week.json`,
         "utf-8",
@@ -15,6 +19,9 @@ export default async function Week() {
      * called getTranslations.
      */
     const t = await getTranslations("Week");
+    const format = await getFormatter();
+    const temperatureUnit =
+        locale === "en-us" ? "fahrenheit" : "celsius";
 
     return (
         <main>
@@ -28,7 +35,9 @@ export default async function Week() {
                 {weeklyWeather.map((day) => (
                     <section key={day.dateTime} className="py-5">
                         <h2 className="mb-1 text-lg font-thin">
-                            {new Date(day.dateTime).toString()}
+                            {t("dayDate", {
+                                dayDate: new Date(day.dateTime),
+                            })}
                         </h2>
                         <div>
                             <div className="flex items-baseline gap-3">
@@ -40,7 +49,11 @@ export default async function Week() {
                                     {t(day.condition)}
                                 </p>
                                 <p className="text-3xl font-thin">
-                                    {day.temperature.celsius}°C
+                                    {format.number(day.temperature[temperatureUnit], {
+                                        style: 'unit',
+                                        unit: temperatureUnit === 'celsius' ? 'celsius' : 'fahrenheit',
+                                        maximumFractionDigits: 0
+                                    })}
                                 </p>
                             </div>
                         </div>
